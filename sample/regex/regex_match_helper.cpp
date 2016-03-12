@@ -21,5 +21,4 @@ namespace regex_match_helper
 		std::regex pattern(reg_str);
 		return std::regex_match(str, pattern);
 	}
-
 }
