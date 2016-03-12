@@ -11,7 +11,7 @@ namespace regex_match_helper
 
 	bool matcheEmalAddress(const std::string& str)
 	{
-		std::string reg_str = "\\w+@[a-zA-Z0-9]+.(com|cn|net)";
+		std::string reg_str = "(\\w+)(\\.|\\w+)*@(\\w+)(\\.[A-Za-z0-9]+)+";
 		std::regex pattern(reg_str);
 		return std::regex_match(str, pattern);
 	}
