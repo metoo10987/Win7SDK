@@ -82,4 +82,27 @@ namespace regex_match_helper_test
 		output(re, email_9);
 	}
 
+	void testSearchFirstEmail()
+	{
+		std::cout << "search first email address..." << std::endl;
+		std::string str = "123456;;12;;;zhaohaibin@qq.com";
+		std::cout << "src = " << str << std::endl;
+		std::string result;
+		size_t pos = regex_match_helper::searchFirstEmailAddress(str, result);
+		if (pos != -1)
+			std::cout << "first email address = " << result << "   begin pos = " << pos << std::endl;
+	}
+
+	void testSearchEmail()
+	{
+		std::cout << "search email address ..." << std::endl;
+		std::string str_1 = "saf;sjf;skjflisdjf;siaifksaji;ladsk;j~гд%бнбн&*ги+=zhaohaibin@qq.com;;;;kkjj993277531@qq.com\nww.ffjiwjffa5544;zhaohaibin@qq.com";
+		std::vector<std::string> result;
+		regex_match_helper::searchAllEmailAddress(str_1,result);
+		for (int i = 0; i < result.size(); ++i)
+		{
+			std::cout << result[i] << std::endl;
+		}
+	}
+
 }
