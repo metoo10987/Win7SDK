@@ -3,7 +3,7 @@
 using namespace std;
 namespace regex_match_helper
 {
-	const string regex_office_temp_file = "~\\$.*.(doc|docx|xlsx|xls|ppt|pptx)";
+	const string regex_office_temp_file = "~\\$.*\\.(doc|docx|xlsx|xls|ppt|pptx)";
 	const string regex_email = "(\\w+)+(\\.|\\w+)*@(\\w+)(\\.[A-Za-z0-9]+)+";
 
 

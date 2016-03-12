@@ -13,10 +13,10 @@ namespace regex_match_helper_test
 
 	void testOfficeTempFileMatch()
 	{
-		std::string name_1 = "12345.doc";
+		std::string name_1 = "12345.wdoc";
 		std::string name_2 = "12345.docx";
 		std::string pre_name_1 = "~$12345.doc";
-		std::string pre_name_2 = "~$12345.docx";
+		std::string pre_name_2 = "~$12345.wdocx";
 		std::string pre_name_3 = "~$中国—你好.doc";
 		std::string pre_name_4 = "~$$$11qqw你好_&()~.docx";
 		bool re = regex_match_helper::matchOfficeTempFile(name_1);
