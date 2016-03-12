@@ -57,6 +57,11 @@ namespace regex_match_helper_test
 		std::string email_2 = "qweqe_ww@qq.com";
 		std::string email_3 = "ffff@qq.com.cn";
 		std::string email_4 = "ffff.aa.bb@qq.com.cn";
+		std::string email_5 = "www.baidu.com@168.com";
+		std::string email_6 = "www_bbb_ccc_.a.b.c@168.net";
+		std::string email_7 = "wwwwwwwww@gmail.com.cn";
+		std::string email_8 = "uuuuuuu@gmail.japen";
+		std::string email_9 = "yyyy@zzz";
 		bool re = regex_match_helper::matcheEmalAddress(email_1);
 		output(re, email_1);
 		re = regex_match_helper::matcheEmalAddress(email_2);
@@ -65,6 +70,16 @@ namespace regex_match_helper_test
 		output(re, email_3);
 		re = regex_match_helper::matcheEmalAddress(email_4);
 		output(re, email_4);
+		re = regex_match_helper::matcheEmalAddress(email_5);
+		output(re, email_5);
+		re = regex_match_helper::matcheEmalAddress(email_6);
+		output(re, email_6);
+		re = regex_match_helper::matcheEmalAddress(email_7);
+		output(re, email_7);
+		re = regex_match_helper::matcheEmalAddress(email_8);
+		output(re, email_8);
+		re = regex_match_helper::matcheEmalAddress(email_9);
+		output(re, email_9);
 	}
 
 }
