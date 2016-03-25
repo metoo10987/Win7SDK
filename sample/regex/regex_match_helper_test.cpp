@@ -13,10 +13,10 @@ namespace regex_match_helper_test
 
 	void testOfficeTempFileMatch()
 	{
-		std::string name_1 = "12345.doc";
+		std::string name_1 = "12345.wdoc";
 		std::string name_2 = "12345.docx";
 		std::string pre_name_1 = "~$12345.doc";
-		std::string pre_name_2 = "~$12345.docx";
+		std::string pre_name_2 = "~$12345.wdocx";
 		std::string pre_name_3 = "~$中国—你好.doc";
 		std::string pre_name_4 = "~$$$11qqw你好_&()~.docx";
 		bool re = regex_match_helper::matchOfficeTempFile(name_1);
@@ -49,6 +49,60 @@ namespace regex_match_helper_test
 		output(re, str_3);
 		re = regex_match_helper::match(reg_str, str_4);
 		output(re, str_4);
+	}
+
+	void testEmailMatch()
+	{
+		std::string email_1 = "123456@qq.com";
+		std::string email_2 = "qweqe_ww@qq.com";
+		std::string email_3 = "ffff@qq.com.cn";
+		std::string email_4 = "ffff.aa.bb@qq.com.cn";
+		std::string email_5 = "www.baidu.com@168.com";
+		std::string email_6 = "www_bbb_ccc_.a.b.c@168.net";
+		std::string email_7 = "wwwwwwwww@gmail.com.cn";
+		std::string email_8 = "uuuuuuu@gmail.japen";
+		std::string email_9 = "yyyy@zzz";
+		bool re = regex_match_helper::matcheEmalAddress(email_1);
+		output(re, email_1);
+		re = regex_match_helper::matcheEmalAddress(email_2);
+		output(re, email_2);
+		re = regex_match_helper::matcheEmalAddress(email_3);
+		output(re, email_3);
+		re = regex_match_helper::matcheEmalAddress(email_4);
+		output(re, email_4);
+		re = regex_match_helper::matcheEmalAddress(email_5);
+		output(re, email_5);
+		re = regex_match_helper::matcheEmalAddress(email_6);
+		output(re, email_6);
+		re = regex_match_helper::matcheEmalAddress(email_7);
+		output(re, email_7);
+		re = regex_match_helper::matcheEmalAddress(email_8);
+		output(re, email_8);
+		re = regex_match_helper::matcheEmalAddress(email_9);
+		output(re, email_9);
+	}
+
+	void testSearchFirstEmail()
+	{
+		std::cout << "search first email address..." << std::endl;
+		std::string str = "123456;;12;;;zhaohaibin@qq.com";
+		std::cout << "src = " << str << std::endl;
+		std::string result;
+		size_t pos = regex_match_helper::searchFirstEmailAddress(str, result);
+		if (pos != -1)
+			std::cout << "first email address = " << result << "   begin pos = " << pos << std::endl;
+	}
+
+	void testSearchEmail()
+	{
+		std::cout << "search email address ..." << std::endl;
+		std::string str_1 = "saf;sjf;skjflisdjf;siaifksaji;ladsk;j~￥%……&*（+=zhaohaibin@qq.com;;;;kkjj993277531@qq.com\nww.ffjiwjffa5544;zhaohaibin@qq.com";
+		std::vector<std::string> result;
+		regex_match_helper::searchAllEmailAddress(str_1,result);
+		for (int i = 0; i < result.size(); ++i)
+		{
+			std::cout << result[i] << std::endl;
+		}
 	}
 
 }

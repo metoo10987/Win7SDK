@@ -1,0 +1,2 @@
+¼Ç×¡ÃÜÂë£º
+git config credential.helper store
