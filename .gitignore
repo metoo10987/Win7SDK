@@ -1,0 +1,6 @@
+/windows/XfileHelper/Debug
+*.suo
+/windows/XfileHelper/XfileHelper/Debug
+*.user
+*.ipch
+*.log
