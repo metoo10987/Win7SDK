@@ -62,6 +62,7 @@
 
 #include <assert.h>
 
+#include <Windows.h>
 const char program_name[] = "ffplay";
 const int program_birth_year = 2003;
 
@@ -99,6 +100,7 @@ const int program_birth_year = 2003;
 #define AUDIO_DIFF_AVG_NB   20
 
 /* polls for possible required screen refresh at least this often, should be less than 1/fps */
+//刷新率
 #define REFRESH_RATE 0.01
 
 /* NOTE: the size must be big enough to compensate the hardware audio buffersize size */
@@ -956,6 +958,7 @@ static void video_image_display(VideoState *is)
             vp->uploaded = 1;
         }
 
+		//向渲染目标复制纹理数据
         SDL_RenderCopy(renderer, vp->bmp, NULL, &rect);
         if (sp) {
 #if USE_ONEPASS_SUBTITLE_RENDER
@@ -1305,13 +1308,17 @@ static void video_display(VideoState *is)
 {
     if (!window)
         video_open(is, NULL);
-
+	//设置绘制的颜色
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
+	//清空渲染目标
     SDL_RenderClear(renderer);
     if (is->audio_st && is->show_mode != SHOW_MODE_VIDEO)
         video_audio_display(is);
     else if (is->video_st)
         video_image_display(is);
+
+	//更新屏幕，进行渲染
     SDL_RenderPresent(renderer);
 }
 
@@ -1703,6 +1710,7 @@ static void alloc_picture(VideoState *is)
     SDL_UnlockMutex(is->pictq.mutex);
 }
 
+//将src_frame添加到is的frame的队列中
 static int queue_picture(VideoState *is, AVFrame *src_frame, double pts, double duration, int64_t pos, int serial)
 {
     Frame *vp;
@@ -1711,7 +1719,7 @@ static int queue_picture(VideoState *is, AVFrame *src_frame, double pts, double 
     printf("frame_type=%c pts=%0.3f\n",
            av_get_picture_type_char(src_frame->pict_type), pts);
 #endif
-
+	//查看帧队列中是否有空闲空间
     if (!(vp = frame_queue_peek_writable(&is->pictq)))
         return -1;
 
@@ -1732,6 +1740,7 @@ static int queue_picture(VideoState *is, AVFrame *src_frame, double pts, double 
 
         /* the allocation must be done in the main thread to avoid
            locking problems. */
+		//添加事件FF_ALLOC_EVENT，用于在主线程上分配空间，以避免锁问题
         event.type = FF_ALLOC_EVENT;
         event.user.data1 = is;
         SDL_PushEvent(&event);
@@ -1760,6 +1769,7 @@ static int queue_picture(VideoState *is, AVFrame *src_frame, double pts, double 
         vp->pos = pos;
         vp->serial = serial;
 
+		//将src_frame中的数据移动到vp->frame中
         av_frame_move_ref(vp->frame, src_frame);
         frame_queue_push(&is->pictq);
     }
@@ -1770,6 +1780,7 @@ static int get_video_frame(VideoState *is, AVFrame *frame)
 {
     int got_picture;
 
+	//解码数据帧
     if ((got_picture = decoder_decode_frame(&is->viddec, frame, NULL)) < 0)
         return -1;
 
@@ -2746,6 +2757,7 @@ static int is_realtime(AVFormatContext *s)
 }
 
 /* this thread gets the stream from the disk or the network */
+//读取数据流从磁盘或网络
 static int read_thread(void *arg)
 {
     VideoState *is = arg;
@@ -3075,6 +3087,7 @@ static VideoState *stream_open(const char *filename, AVInputFormat *iformat)
     is = av_mallocz(sizeof(VideoState));
     if (!is)
         return NULL;
+	//av_strdup 复制字符串
     is->filename = av_strdup(filename);
     if (!is->filename)
         goto fail;
@@ -3226,7 +3239,19 @@ static void refresh_loop_wait_event(VideoState *is, SDL_Event *event) {
             av_usleep((int64_t)(remaining_time * 1000000.0));
         remaining_time = REFRESH_RATE;
         if (is->show_mode != SHOW_MODE_NONE && (!is->paused || is->force_refresh))
+		{
             video_refresh(is, &remaining_time);
+// 			if(is->show_mode == SHOW_MODE_VIDEO)
+// 				OutputDebugString(L"SHOW_MODE_VIDEO/n");
+// 			if(is->show_mode == SHOW_MODE_WAVES)
+// 				OutputDebugString(L"SHOW_MODE_WAVES/n");
+// 			if(is->show_mode == SHOW_MODE_RDFT)
+// 				OutputDebugString(L"SHOW_MODE_RDFT/n");
+		}
+		else
+		{
+			OutputDebugString(L"SHOW_MODE_NONE/n");
+		}
         SDL_PumpEvents();
     }
 }
@@ -3706,9 +3731,11 @@ int main(int argc, char **argv)
 
     init_opts();
 
+	//注册信号处理函数 C libary
     signal(SIGINT , sigterm_handler); /* Interrupt (ANSI).    */
     signal(SIGTERM, sigterm_handler); /* Termination (ANSI).  */
 
+	//打印一些信息
     show_banner(argc, argv, options);
 
     parse_options(NULL, argc, argv, options, opt_input_file);
@@ -3744,11 +3771,13 @@ int main(int argc, char **argv)
     SDL_EventState(SDL_SYSWMEVENT, SDL_IGNORE);
     SDL_EventState(SDL_USEREVENT, SDL_IGNORE);
 
+	//注册锁管理函数
     if (av_lockmgr_register(lockmgr)) {
         av_log(NULL, AV_LOG_FATAL, "Could not initialize lock manager!\n");
         do_exit(NULL);
     }
 
+	//使用默认值初始化数据包可选字段,请注意，这不触及数据和大小成员，必须分别进行初始化
     av_init_packet(&flush_pkt);
     flush_pkt.data = (uint8_t *)&flush_pkt;
 
