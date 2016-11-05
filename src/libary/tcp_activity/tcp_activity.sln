@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tcp_activity", "tcp_activity\tcp_activity.vcxproj", "{F64C2212-8819-4F18-868E-7CFCB2378E42}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TEST", "TEST\TEST.vcxproj", "{D798B9D6-F009-420D-8238-7520EBA5D8D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F64C2212-8819-4F18-868E-7CFCB2378E42}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F64C2212-8819-4F18-868E-7CFCB2378E42}.Debug|Win32.Build.0 = Debug|Win32
+		{F64C2212-8819-4F18-868E-7CFCB2378E42}.Release|Win32.ActiveCfg = Release|Win32
+		{F64C2212-8819-4F18-868E-7CFCB2378E42}.Release|Win32.Build.0 = Release|Win32
+		{D798B9D6-F009-420D-8238-7520EBA5D8D6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D798B9D6-F009-420D-8238-7520EBA5D8D6}.Debug|Win32.Build.0 = Debug|Win32
+		{D798B9D6-F009-420D-8238-7520EBA5D8D6}.Release|Win32.ActiveCfg = Release|Win32
+		{D798B9D6-F009-420D-8238-7520EBA5D8D6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
