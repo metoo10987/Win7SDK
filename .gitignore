@@ -1,0 +1,11 @@
+*.tlog
+*.log
+*.ilk
+*.ipdb
+*.idb
+*.obj
+*.opendb
+*.pdb
+*.iobj
+*.suo
+*.sdf
