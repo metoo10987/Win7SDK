@@ -1,11 +1,6 @@
-*.tlog
-*.log
-*.ilk
-*.ipdb
-*.idb
-*.obj
-*.opendb
-*.pdb
-*.iobj
+/windows/XfileHelper/Debug
 *.suo
-*.sdf
+/windows/XfileHelper/XfileHelper/Debug
+*.user
+*.ipch
+*.log

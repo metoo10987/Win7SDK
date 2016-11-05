@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{a067f8f1-c146-452f-8a65-e3ebd4c2d5ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XfileHelper">
+      <UniqueIdentifier>{7aa045e3-5b2c-4678-974e-633683f412be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\macro">
+      <UniqueIdentifier>{14436d25-ffbf-4877-8174-209ee24cf1db}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\XfileHelper\context.h">
+      <Filter>src\XfileHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\XfileHelper\folder_helper.h">
+      <Filter>src\XfileHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="src\macro\config.h">
+      <Filter>src\macro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\macro\error_check.h">
+      <Filter>src\macro</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XfileHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\XfileHelper\context.cpp">
+      <Filter>src\XfileHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\XfileHelper\folder_helper.cpp">
+      <Filter>src\XfileHelper</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
