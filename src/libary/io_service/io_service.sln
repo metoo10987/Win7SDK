@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "io_service", "io_service\io_service.vcxproj", "{EF0CF9EB-F3B8-4D1C-8F24-C522EC8EE3F7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "io_service_test", "io_service_test\io_service_test.vcxproj", "{234F5056-C075-4944-8627-295E52FFF20D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF0CF9EB-F3B8-4D1C-8F24-C522EC8EE3F7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EF0CF9EB-F3B8-4D1C-8F24-C522EC8EE3F7}.Debug|Win32.Build.0 = Debug|Win32
+		{EF0CF9EB-F3B8-4D1C-8F24-C522EC8EE3F7}.Release|Win32.ActiveCfg = Release|Win32
+		{EF0CF9EB-F3B8-4D1C-8F24-C522EC8EE3F7}.Release|Win32.Build.0 = Release|Win32
+		{234F5056-C075-4944-8627-295E52FFF20D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{234F5056-C075-4944-8627-295E52FFF20D}.Debug|Win32.Build.0 = Debug|Win32
+		{234F5056-C075-4944-8627-295E52FFF20D}.Release|Win32.ActiveCfg = Release|Win32
+		{234F5056-C075-4944-8627-295E52FFF20D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

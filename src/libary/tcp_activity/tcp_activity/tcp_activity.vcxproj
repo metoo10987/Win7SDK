@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -11,23 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B353068A-5880-4B8E-AF2E-F82EF096482F}</ProjectGuid>
+    <ProjectGuid>{F64C2212-8819-4F18-868E-7CFCB2378E42}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>regex</RootNamespace>
+    <RootNamespace>tcp_activity</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -52,6 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\..\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -76,13 +77,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bad_except.cpp" />
+    <ClCompile Include="client_net_stream.cpp" />
+    <ClCompile Include="client_net_stream_holder.cpp" />
+    <ClCompile Include="ErrorMsg.cpp" />
+    <ClCompile Include="init_sock.cpp" />
+    <ClCompile Include="io_complate_port.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="regex_match_helper.cpp" />
-    <ClCompile Include="regex_match_helper_test.cpp" />
+    <ClCompile Include="tcp_activity.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="regex_match_helper.h" />
-    <ClInclude Include="regex_match_helper_test.h" />
+    <ClInclude Include="bad_except.h" />
+    <ClInclude Include="client_net_stream.h" />
+    <ClInclude Include="client_net_stream_holder.h" />
+    <ClInclude Include="ErrorMsg.h" />
+    <ClInclude Include="init_sock.h" />
+    <ClInclude Include="io_complate_port.h" />
+    <ClInclude Include="network_file_transfer.h" />
+    <ClInclude Include="net_packet.h" />
+    <ClInclude Include="socket_error.h" />
+    <ClInclude Include="string_separater.h" />
+    <ClInclude Include="tcp_activity.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
