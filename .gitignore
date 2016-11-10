@@ -4,3 +4,5 @@
 *.user
 *.ipch
 *.log
+*.exe
+*.tlog
