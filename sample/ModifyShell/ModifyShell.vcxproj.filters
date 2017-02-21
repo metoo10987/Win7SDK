@@ -24,12 +24,18 @@
     <ClCompile Include="ModifyShellChildCtrlPos.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ExplorerFiles.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShellChildCtrlSet.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ModifyShellChildCtrlPos.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplorerFiles.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

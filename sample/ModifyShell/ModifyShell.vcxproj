@@ -74,11 +74,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExplorerFiles.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModifyShellChildCtrlPos.cpp" />
     <ClCompile Include="ShellChildCtrlSet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ExplorerFiles.h" />
     <ClInclude Include="ModifyShellChildCtrlPos.h" />
     <ClInclude Include="ShellChildCtrlSet.h" />
   </ItemGroup>
